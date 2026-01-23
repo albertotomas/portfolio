@@ -1,0 +1,251 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+    font-family: "android";
+    src: url("fontes/idroid.otf") format("opentype");
+}
+
+/* VARIÁVEIS */
+:root{
+    --cor0:#c5ebdc;
+    --cor1:#83e1ad;
+    --cor2:#3ddc84;
+    --cor3:#2fa866;
+    --cor4:#1a5c37;
+    --cor5:#063d1e;
+
+    --font-padrao: Arial, Verdana, sans-serif;
+    --font-destaque: "Bebas Neue", sans-serif;
+    --font-android: "android", sans-serif;
+}
+
+/* RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body{
+    background-color: var(--cor0);
+    font-family: var(--font-padrao);
+}
+
+/* HEADER */
+#cabecalho{
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+    text-align: center;
+    color: white;
+    padding: 40px 10px 0;
+}
+
+#cabecalho h1{
+    font-family: var(--font-destaque);
+    font-size: 3em;
+}
+
+#cabecalho nav{
+    background-color: var(--cor5);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+#cabecalho nav a{
+    color: var(--cor1);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#cabecalho nav a:hover{
+    background-color: var(--cor2);
+    color: var(--cor5);
+}
+
+/* MAIN */
+#interface{
+    max-width: 1000px;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 0 0 10px 10px;
+}
+
+#interface p{
+    text-align: justify;
+    margin: 15px 0;
+    line-height: 2em;
+    text-indent: 30px;
+}
+
+/* TÍTULOS */
+main h1, main h2{
+    font-family: var(--font-android);
+    color: var(--cor5);
+}
+
+/* IMAGENS */
+main img{
+    width: 100%;
+}
+
+img.pequena{
+    max-width: 300px;
+    display: block;
+    margin: auto;
+}
+
+/* VIDEO */
+.video{
+    background-color: var(--cor5);
+    padding: 20px;
+    position: relative;
+    padding-bottom: 56.25%;
+}
+
+.video iframe{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+/* ASIDE */
+#lateral{
+    background-color: var(--cor1);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#lateral ul{
+    list-style-position: inside;
+    columns: 2;
+}
+
+/* FOOTER */
+#rodape{
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* RESPONSIVO */
+@media (max-width:600px){
+    #lateral ul{
+        columns: 1;
+    }
+}
+/* MENU HAMBURGER */
+.menu{
+    background-color: var(--cor5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+}
+
+.menu-links{
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.menu-links a{
+    color: var(--cor1);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.menu-links a:hover{
+    background-color: var(--cor2);
+    color: var(--cor5);
+}
+
+/* BOTÃO HAMBURGER */
+.menu-toggle{
+    display: none;
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: var(--cor1);
+    cursor: pointer;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px){
+    .menu{
+        justify-content: space-between;
+    }
+
+    .menu-toggle{
+        display: block;
+    }
+
+    .menu-links{
+        display: none;
+        flex-direction: column;
+        background-color: var(--cor5);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-links.active{
+        display: flex;
+    }
+}
+/* BOTÃO HAMBURGER ANIMADO */
+.menu-toggle{
+    width: 35px;
+    height: 30px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-toggle span{
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: var(--cor1);
+    border-radius: 5px;
+    transition: 0.4s;
+}
+
+/* ANIMAÇÃO PARA X */
+.menu-toggle.active span:nth-child(1){
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.menu-toggle.active span:nth-child(2){
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3){
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px){
+    .menu-toggle{
+        display: flex;
+    }
+}
